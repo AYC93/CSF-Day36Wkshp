@@ -1,1 +1,21 @@
-<p>display works!</p>
+<div *ngIf="weather$ | async as list">
+    <table border="1" *ngFor="let w of list">
+        <tr>
+            <h2>{{ city }}</h2> <button type="button" [routerLink]="['/']">Back</button>
+        </tr>
+        <tr>
+            <td>Weather:</td>
+            <td>{{ w.main }}</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>{{ w.description }} </td>
+        </tr>
+        <tr>
+            <td>Icon:</td>
+            <td>
+                <img src="https://openweathermap.org/img/wn/{{w.icon}}@2x.png">
+            </td>
+        </tr>
+    </table>
+</div>

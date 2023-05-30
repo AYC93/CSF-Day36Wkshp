@@ -23,10 +23,11 @@ ngOnInit(): void {
   this.form = this.createForm();
 }
 
-
 processForm(city:string){
   // input has to be defined in the model
+  console.info(">>>", city)
   this.router.navigate(['/api/weather', city])
+  console.info(">>>", city)
   console.info(">>>> navigate: ", this.router.navigate(['/api/weather', city]))
 }
 

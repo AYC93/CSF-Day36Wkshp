@@ -7,10 +7,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather.component';
 import { DisplayComponent } from './components/display.component';
+import { WeatherSvc } from './app.service';
+
 
 const appRoutes : Routes =[
   { path: '', component: WeatherComponent },
-  { path: 'api/weather', component: DisplayComponent },
+  { path: 'api/weather/:city', component: DisplayComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ]
 
@@ -21,9 +23,9 @@ const appRoutes : Routes =[
     DisplayComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, HttpClientModule
+    BrowserModule, RouterModule.forRoot(appRoutes, {useHash:true}), ReactiveFormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [ WeatherSvc ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

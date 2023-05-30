@@ -21,7 +21,7 @@ export class DisplayComponent implements OnInit{
 
   ngOnInit(): void {
     this.city = this.activatedRoute.snapshot.params['city']
-    const units = this.activatedRoute.snapshot.queryParams
+    console.info(">>> units = ", this.city)
 
     this.weather$ = this.weatherSvc.getWeatherData(this.city)
 

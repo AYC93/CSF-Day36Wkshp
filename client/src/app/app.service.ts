@@ -11,9 +11,8 @@ export class WeatherSvc{
 
     getWeatherData(city:string){
         const params= new HttpParams()
-                    .set("q", city)
-                    .set("appid", 'dfec5987fc8a4077243a59221b4f5db7')
-
+                    .set("city", city)
+        console.info("URL>>> ", URL)
         return this.http.get<Weather[]>(`${URL}`, {params})
     }
 }
