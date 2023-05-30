@@ -1,0 +1,19 @@
+<form [formGroup]="form"    >
+    <table>
+        <tr>
+            <td>City:</td>
+            <td>
+                <input size="30" formControlName="city">
+            </td>
+            <td><button type="button" (click)="addCity()">Add</button></td>
+        </tr>
+    </table>
+        <table>
+            <tr *ngFor="let c of defaultCities" (click)="processForm(c)" 
+            style="outline: thin solid">
+             <td value="[city]">
+                 {{ c }}
+             </td>   
+            </tr>
+        </table>
+</form>
